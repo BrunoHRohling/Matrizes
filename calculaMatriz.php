@@ -1,3 +1,7 @@
+<style>
+
+</style>
+
 <?php
 
 // Pega mensagem
@@ -10,22 +14,30 @@ $messageCripto = criptografaMensagem($message);
 //$messageDescripto = descriptografaMensagem($messageCripto);
 
 // Exibe
-echo '<p>Mensagem enviada:</p>';
-echo '<p>' . $message . '</p>';
+echo "<p>Mensagem enviada: \"$message\"</p>";
 
 echo '<p>Mensagem criptografada: </p>';
-echo '[<br>';
+
+echo '<table>';
+echo '<tr>';
 foreach ($messageCripto as $coluna) {
-    foreach ($coluna as $itemColuna) {
-        echo '(';
-        echo $itemColuna;
-        echo ')';
+    foreach ($coluna as $indice => $itemColuna) {
+        if ($indice == 0) {
+            echo '<td>' . $itemColuna . '</td>';
+        }
     }
-    echo '<br>';
 }
-echo ']';
-
-
+echo '</tr>';
+echo '<tr>';
+foreach ($messageCripto as $coluna) {
+    foreach ($coluna as $indice => $itemColuna) {
+        if ($indice == 1) {
+            echo '<td>' . $itemColuna . '</td>';
+        }
+    }
+}
+echo '</tr>';
+echo '</table>';
 
 /**
  * Criptografa a mensagem utilizando matrizes
