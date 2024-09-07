@@ -1,5 +1,33 @@
 <style>
+    p{
+        margin: 10px;
+    }
+    
+    /* Estilo para centralizar a tabela e adicionar margens */
+    .matrix {
+        display: inline-block;
+        border-spacing: 10px;
+        text-align: center;
+        padding-top: 2px;
+    }
 
+    /* Adiciona colchetes ao redor da tabela */
+    .matrix-container::before {
+        content: "[";
+        font-size: 70px;
+        vertical-align: top;
+    }
+
+    .matrix-container::after {
+        content: "]";
+        font-size: 70px;
+        vertical-align: top;
+    }
+
+    /* Estilo para as células da tabela */
+    .matrix td {
+        padding: 5px;
+    }
 </style>
 
 <?php
@@ -10,15 +38,16 @@ $message = $_GET['message'];
 // Recebe mensagem criptografada
 $messageCripto = criptografaMensagem($message);
 
-// Recebe mensagem descriptografada
-//$messageDescripto = descriptografaMensagem($messageCripto);
 
-// Exibe
+// Exibe a mensagem original
 echo "<p>Mensagem enviada: \"$message\"</p>";
 
+// Exibe a mensagem criptografada em forma de matriz
 echo '<p>Mensagem criptografada: </p>';
 
-echo '<table>';
+// Adiciona a estrutura da tabela cercada por colchetes
+echo '<div class="matrix-container">';
+echo '<table class="matrix">';
 echo '<tr>';
 foreach ($messageCripto as $coluna) {
     foreach ($coluna as $indice => $itemColuna) {
@@ -38,7 +67,7 @@ foreach ($messageCripto as $coluna) {
 }
 echo '</tr>';
 echo '</table>';
-
+echo '</div>';
 /**
  * Criptografa a mensagem utilizando matrizes
  * @param string $message
@@ -115,14 +144,4 @@ function criptografaMensagem(string $message): array
 
     // Retorna a matriz criptografada
     return $messageCripto;
-}
-
-/**
- * Descriptografa mensagens utilizando matrizes inversas
- * @param array $messageCripto
- * @return void
- */
-function descriptografarMensagem(array $messageCripto)
-{
-
 }
