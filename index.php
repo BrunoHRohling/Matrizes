@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Criptografia de mensagem utilizando matrizes</h1>
-<form action="calculaMatriz.php" method="get">
+<form action="calculaMatriz.php" method="post">
     <label for="Mensagem">Digite sua mensagem:</label>
     <input type="text" name="message" id="Mensagem" required>
 
