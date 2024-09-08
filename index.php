@@ -9,11 +9,16 @@
 </head>
 <body>
 <h1>Criptografia de mensagem utilizando matrizes</h1>
-<form action="calculaMatriz.php" method="post">
+<form action="./" method="post">
     <label for="Mensagem">Digite sua mensagem:</label>
     <input type="text" name="message" id="Mensagem" required>
 
-    <button type="submit">Criptografar mensagem!</button>
+    <button type="submit" name="submit">Criptografar mensagem!</button>
 </form>
+<?php
+if (isset($_POST['submit'])) {
+    include 'calculaMatriz.php';
+}
+?>
 </body>
 </html>

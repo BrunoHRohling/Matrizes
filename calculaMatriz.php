@@ -108,9 +108,11 @@ echo "<p>Mensagem descriptografada: \"$messageDescripto\"</p>";
 echo '<h2>Informações utilizadas:</h2>';
 
 echo '<p>Matriz utilizada na criptografia:</p>';
+echo 'A = ';
 exibeMatriz($matrizSal);
 
 echo '<p>Matriz inversa utlizada na descriptografia:</p>';
+echo 'A^-1 = ';
 exibeMatriz($matrizAcucar);
 
 echo '<p>Codificação do alfabeto:</p>';
